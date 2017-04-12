@@ -2,7 +2,7 @@
 web:
   build: .
   volumes:
-    - .:/project_name
+    - .:/sidepunch
   ports:
     - "3000:3000"
   links:
