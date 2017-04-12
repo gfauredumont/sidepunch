@@ -6,10 +6,10 @@ RUN echo 'gem: --no-document' > /root/.gemrc
 
 RUN mkdir /sidepunch
 
-# WORKDIR /tmp
-# COPY Gemfile Gemfile
-# COPY Gemfile.lock Gemfile.lock
-# RUN bundle install
+WORKDIR /sidepunch
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
+RUN bundle install
 
 ADD . /sidepunch
 WORKDIR /sidepunch

@@ -5,7 +5,14 @@ web:
     - .:/project_name
   ports:
     - "3000:3000"
-
+  links:
+    - redis
   env_file:
     - '.env.web'
-  command: bash
+  command: bash -c "rm -rf tmp/* && foreman start"
+
+# https://store.docker.com/images/1f6ef28b-3e48-4da1-b838-5bd8710a2053?tab=description
+redis:
+  image: redis:3.0.7
+  ports:
+    - "6379"
